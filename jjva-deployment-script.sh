@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #k8s-deployment.sh
-mss_pod_app="mss-maven-pod"
-mss_con_app="mss-maven-con"
-serviceName="mss-maven-svc"
+mss_pod_app="mss-java-pod"
+mss_con_app="mss-java-con"
+serviceName="mss-java-svc"
 #imageName="eagunuworld/numeric-app:docker pull eagunuworld/numeric-app:ddba18bd401f3eeb0ee097eb56dd8f76d1953e0b"
 imageVersion="eagunuworld/jjva-mss-java-web-app:v$BUILD_NUMBER"
 #applicationURL="http://devsecops-demo.eastus.cloudapp.azure.com/"

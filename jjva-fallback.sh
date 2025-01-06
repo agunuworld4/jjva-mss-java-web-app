@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mss_pod_app="mss-maven-pod"
+mss_pod_app="mss-java-pod"
 imageVersion="eagunuworld/jjva-mss-java-web-app:v$BUILD_NUMBER"
 
 
