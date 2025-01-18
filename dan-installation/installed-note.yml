@@ -259,9 +259,10 @@ volumes:
 
                 #Nexus installation
 #############################
-#java 11
+#java 8
 yum update -y
-yum install java-11-openjdk-devel -y
+sudo yum install java-1.8.0-openjdk-devel
+#yum install java-11-openjdk-devel -y
 java --version
 update-alternatives --config java
 #################################
