@@ -3,7 +3,7 @@
 
 pipeline {
 
-  agent { label 'gcloud-java-slave-node' }
+  agent { label 'jjva-google-jenkins-slave' }
 
   options {
        buildDiscarder logRotator(
