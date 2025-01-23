@@ -6,7 +6,7 @@ imageVersion="eagunuworld/jjva-mss-java-web-app:v$BUILD_NUMBER"
 
 sleep 20s
 
-if [[ $(kubectl -n ibm-ucd get deploy ${mss_pod_app} --timeout 5s) = *"successfully rolled out"* ]];
+if [[ $(kubectl -n jjva-ns-svc-pod get deploy ${mss_pod_app} --timeout 5s) = *"successfully rolled out"* ]];
 then
 	echo "Deployment ${mss_pod_app} was successful"
     exit 0;
