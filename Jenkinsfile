@@ -20,6 +20,10 @@ pipeline {
 
   environment {
     BUILD_NUMBER = "${env.BUILD_ID}"
+    //jjva-mss-java-web-app sonarqubetoken
+    jjva_java_sonar_token="sqp_db11ea5f16674caeb3bafc7ae4c9d760dd24d042"
+    //Sonareqube externalIP Idress
+    sonarIP="34.75.8.35"
     //eagunu docker registry repository
     registry = "eagunuworld/jjva-mss-java-web-app"
     //eagunu dockerhub registry
@@ -32,7 +36,7 @@ pipeline {
     // This can be http or https
     NEXUS_PROTOCOL = "http"
     // Where your Nexus is running
-    NEXUS_URL = "35.226.17.212:8081"
+    NEXUS_URL = "34.29.3.243:8081"
     // Repository where we will upload the artifact
     NEXUS_REPOSITORY = "jjva-mss-java-web-app"
     // Jenkins credential id to authenticate to Nexus OSS
@@ -63,11 +67,7 @@ pipeline {
     stage ('SonarQubeReports') {
       steps {
       //sh 'mvn clean package sonar:sonar'
-      sh "mvn clean verify sonar:sonar \
-          -Dsonar.projectKey=jjva-mss-java-web-app \
-           -Dsonar.projectName='jjva-mss-java-web-app' \
-            -Dsonar.host.url=http://34.138.102.99:9000 \
-             -Dsonar.token=sqp_db11ea5f16674caeb3bafc7ae4c9d760dd24d042"
+      sh "mvn clean clean package sonar:sonar -Dsonar.projectKey=jjva-mss-java-web-app -Dsonar.projectName='jjva-mss-java-web-app' -Dsonar.host.url=http://${sonarIP}:9000 -Dsonar.token=${jjva_java_sonar_token}"
          }
      }
 
