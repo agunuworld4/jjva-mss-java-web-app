@@ -1,5 +1,5 @@
 //${library.jenkins-slack-library.version}
-//@Library('Slack-us-east-jenkins-prod') _
+@Library('jjva-canada-channels') _
 
 pipeline {
 
@@ -23,7 +23,7 @@ pipeline {
     //jjva-mss-java-web-app sonarqubetoken
     jjva_java_sonar_token="sqp_db11ea5f16674caeb3bafc7ae4c9d760dd24d042"
     //Sonareqube externalIP Idress
-    sonarIP="34.75.8.35"
+    sonarIP="34.148.62.212"
     //eagunu docker registry repository
     registry = "eagunuworld/jjva-mss-java-web-app"
     //eagunu dockerhub registry
@@ -36,7 +36,7 @@ pipeline {
     // This can be http or https
     NEXUS_PROTOCOL = "http"
     // Where your Nexus is running
-    NEXUS_URL = "34.29.3.243:8081"
+    NEXUS_URL = "34.68.125.161:8081"
     // Repository where we will upload the artifact
     NEXUS_REPOSITORY = "jjva-mss-java-web-app"
     // Jenkins credential id to authenticate to Nexus OSS
@@ -187,18 +187,11 @@ pipeline {
   //     }
 
  }  //This line end the pipeline stages
-  ///post {   //This line start the post script uncommit later
-       // always { umcommit later
-          //junit 'target/surefire-reports/*.xml'
-         // jacoco execPattern: 'target/jacoco.exec'
-        // pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
-         //dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
-         //publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'OWASP ZAP HTML Report', reportTitles: 'OWASP ZAP HTML Report'])
-
+  post {   //This line start the post script uncommit later
+       always {
          //Use sendNotifications.groovy from shared library and provide current build result as parameter
-        // sendNotification currentBuild.result uncommit later
-        //} uncommmit lastr
-
+        sendNotification currentBuild.result
+        }
     //success {
       //script {
         /* Use slackNotifier.groovy from shared library and provide current build result as parameter */
