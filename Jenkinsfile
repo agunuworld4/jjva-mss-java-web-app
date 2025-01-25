@@ -19,6 +19,7 @@ pipeline {
   }
 
   environment {
+    //Apps environments properties
     myApp="mss-java-app"
     sonarName="jjva-mss-java-web-app"
     dockerName="jjva-mss-java-web-app"
@@ -27,21 +28,23 @@ pipeline {
     alertM="prometheus-alertmanager"
     alertName="prometheus-alertmanager"
     graName="grafana"
-    GIT_COMMIT = "${GIT_COMMIT}"
-    GIT_BRANCH="${GIT_BRANCH}"
-    GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
+    //website url properties
     webSite="http://eagunu4live.com"
-    BUILD_NUMBER = "${env.BUILD_ID}"
-    //jjva-mss-java-web-app sonarqubetoken
-    jjva_java_sonar_token="sqp_db11ea5f16674caeb3bafc7ae4c9d760dd24d042"
-    //Sonareqube externalIP Idress
-    sonarIP="http://34.148.62.212"
-    nexusIP="http://34.68.125.161"
+    sonarIP="http://35.229.80.79"
+    nexusIP="http://34.121.109.88"
     promeLink="http://prm.eagunu4live.com"
     grafanaURL="http://gra.eagunu4live.com"
     alertURL="http://mrg.eagunu4live.com"
     alartLink="http://mgr.eagunu4live.com"
     dockerlink="https://hub.docker.com/repository/docker/eagunuworld/jjva-mss-java-web-app"
+    //Codes environment properties
+    GIT_COMMIT = "${GIT_COMMIT}"
+    GIT_BRANCH="${GIT_BRANCH}"
+    GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
+    BUILD_NUMBER = "${env.BUILD_ID}"
+    //jjva-mss-java-web-app sonarqubetoken
+    jjva_java_sonar_token="sqp_db11ea5f16674caeb3bafc7ae4c9d760dd24d042"
+    //Sonareqube externalIP Idress
     //eagunu docker registry repository
     registry = "eagunuworld/jjva-mss-java-web-app"
     //eagunu dockerhub registry
@@ -63,124 +66,118 @@ pipeline {
   }
 
    stages {
-  //   stage('Cloning Git') {
-  //           steps {
-  //               //checkout([$class: 'GitSCM', branches: [[name: '*/prod-master']], extensions: [], userRemoteConfigs: [[credentialsId: 'democalculus-github-login-creds', url: 'https://github.com/democalculus/kubana-maven-web-app.git']]])
-  //               git credentialsId: 'GIT_CREDENTIALS', url:  'https://github.com/agunuworld4/jjva-mss-java-web-app.git',branch: 'lab-master-branch'
-  //           }
-  //       }
-  //
-  //   stage ('Build wep app war file') {
-  //     steps {
-  //     sh 'mvn clean package'
-  //      }
-  //   }
-  //  //hardcoded in pom.xml file
-  //   // stage ('SonarQubeReport') {
-  //   //   steps {
-  //   //   sh 'mvn clean package sonar:sonar'
-  //   // }
-  //   //  }
-  //
-  //   stage ('SonarQubeReports') {
-  //     steps {
-  //     //sh 'mvn clean package sonar:sonar'
-  //     sh "mvn clean clean package sonar:sonar -Dsonar.projectKey=jjva-mss-java-web-app -Dsonar.projectName='jjva-mss-java-web-app' -Dsonar.host.url=http://${sonarIP}:9000 -Dsonar.token=${jjva_java_sonar_token}"
-  //        }
-  //    }
-  //
-  // // stage ('SonarQube Plugin Report') {
-  // //      steps {
-  // //        withSonarQubeEnv('SonarQubeAccessToken') {
-  // //        //sh "mvn clean package sonar:sonar"
-  // //        sh "mvn clean package sonar:sonar"
-  // //         }
-  // //       }
-  // //     }
-  //
-  //     stage("publish to nexus") {
-  //         steps {
-  //             script {
-  //                 // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
-  //                 pom = readMavenPom file: "pom.xml";
-  //                 // Find built artifact under target folder
-  //                 filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
-  //                 // Print some info from the artifact found
-  //                 echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
-  //                 // Extract the path from the File found
-  //                 artifactPath = filesByGlob[0].path;
-  //                 // Assign to a boolean response verifying If the artifact name exists
-  //                 artifactExists = fileExists artifactPath;
-  //
-  //                 if(artifactExists) {
-  //                     echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
-  //
-  //                     nexusArtifactUploader(
-  //                         nexusVersion: NEXUS_VERSION,
-  //                         protocol: NEXUS_PROTOCOL,
-  //                         nexusUrl: NEXUS_URL,
-  //                         groupId: pom.groupId,
-  //                         version: BUILD_NUMBER,
-  //                         repository: NEXUS_REPOSITORY,
-  //                         credentialsId: NEXUS_CREDENTIAL_ID,
-  //                         artifacts: [
-  //                             // Artifact generated such as .jar, .ear and .war files.
-  //                             [artifactId: pom.artifactId,
-  //                             classifier: '',
-  //                             file: artifactPath,
-  //                             type: pom.packaging]
-  //                         ]
-  //                     );
-  //
-  //                 } else {
-  //                     error "*** File: ${artifactPath}, could not be found";
-  //                 }
-  //             }
-  //            }
-  //        }
-  //
-  //     stage('Building our image') {
-  //          steps{
-  //               script {
-  //                  dockerImage = docker.build registry + ":v$BUILD_NUMBER"
-  //                 }
-  //             }
-  //          }
-  //
-  //     // stage('QA approve') {
-  //     //        steps {
-  //     //          notifySlack("Do you approve QA deployment? $registry/job/$BUILD_NUMBER", [])
-  //     //            input 'Do you approve QA deployment?'
-  //     //            }
-  //     //        }
-  //
-  //     stage('Deploy our image') {
-  //        steps{
-  //            script {
-  //               docker.withRegistry( '', registryCredential ) {
-  //              dockerImage.push()
-  //             }
-  //           }
-  //          }
-  //        }
-  //
-  //   stage('updating image version') {
-  //         steps {
-  //               sh "bash jjva-latest-version-update.sh"
-  //               }
-  //           }
-  //
-  //   stage('Cleaning  up docker Images') {
-  //       steps{
-  //          sh 'docker rmi  ${imageVersion}'
-  //          }
-  //        }
-
-  stage('Testing Slack') {
-    steps {
-      sh 'exit 0'
+    stage('Cloning Git') {
+            steps {
+                //checkout([$class: 'GitSCM', branches: [[name: '*/prod-master']], extensions: [], userRemoteConfigs: [[credentialsId: 'democalculus-github-login-creds', url: 'https://github.com/democalculus/kubana-maven-web-app.git']]])
+                git credentialsId: 'GIT_CREDENTIALS', url:  'https://github.com/agunuworld4/jjva-mss-java-web-app.git',branch: 'lab-master-branch'
+            }
         }
+
+    stage ('Build wep app war file') {
+      steps {
+      sh 'mvn clean package'
+       }
+    }
+   //hardcoded in pom.xml file
+    // stage ('SonarQubeReport') {
+    //   steps {
+    //   sh 'mvn clean package sonar:sonar'
+    // }
+    //  }
+
+    stage ('SonarQubeReports') {
+      steps {
+      //sh 'mvn clean package sonar:sonar'
+      sh "mvn clean clean package sonar:sonar -Dsonar.projectKey=jjva-mss-java-web-app -Dsonar.projectName='jjva-mss-java-web-app' -Dsonar.host.url=http://${sonarIP}:9000 -Dsonar.token=${jjva_java_sonar_token}"
+         }
      }
+
+  // stage ('SonarQube Plugin Report') {
+  //      steps {
+  //        withSonarQubeEnv('SonarQubeAccessToken') {
+  //        //sh "mvn clean package sonar:sonar"
+  //        sh "mvn clean package sonar:sonar"
+  //         }
+  //       }
+  //     }
+
+      stage("publish to nexus") {
+          steps {
+              script {
+                  // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
+                  pom = readMavenPom file: "pom.xml";
+                  // Find built artifact under target folder
+                  filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
+                  // Print some info from the artifact found
+                  echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
+                  // Extract the path from the File found
+                  artifactPath = filesByGlob[0].path;
+                  // Assign to a boolean response verifying If the artifact name exists
+                  artifactExists = fileExists artifactPath;
+
+                  if(artifactExists) {
+                      echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
+
+                      nexusArtifactUploader(
+                          nexusVersion: NEXUS_VERSION,
+                          protocol: NEXUS_PROTOCOL,
+                          nexusUrl: NEXUS_URL,
+                          groupId: pom.groupId,
+                          version: BUILD_NUMBER,
+                          repository: NEXUS_REPOSITORY,
+                          credentialsId: NEXUS_CREDENTIAL_ID,
+                          artifacts: [
+                              // Artifact generated such as .jar, .ear and .war files.
+                              [artifactId: pom.artifactId,
+                              classifier: '',
+                              file: artifactPath,
+                              type: pom.packaging]
+                          ]
+                      );
+
+                  } else {
+                      error "*** File: ${artifactPath}, could not be found";
+                  }
+              }
+             }
+         }
+
+      stage('Building our image') {
+           steps{
+                script {
+                   dockerImage = docker.build registry + ":v$BUILD_NUMBER"
+                  }
+              }
+           }
+
+      // stage('QA approve') {
+      //        steps {
+      //          notifySlack("Do you approve QA deployment? $registry/job/$BUILD_NUMBER", [])
+      //            input 'Do you approve QA deployment?'
+      //            }
+      //        }
+
+      stage('Deploy our image') {
+         steps{
+             script {
+                docker.withRegistry( '', registryCredential ) {
+               dockerImage.push()
+              }
+            }
+           }
+         }
+
+    stage('updating image version') {
+          steps {
+                sh "bash jjva-latest-version-update.sh"
+                }
+            }
+
+    stage('Cleaning  up docker Images') {
+        steps{
+           sh 'docker rmi  ${imageVersion}'
+           }
+         }
   // stage('kubernetes version 2') {
   //              steps {
   //               withKubeConfig([credentialsId: 'us-east-2-prod-eksdemo']) {
@@ -190,18 +187,18 @@ pipeline {
   //            }
 
 
-    // stage('JJva-Maven Deployment') {
-    //         steps {
-    //           parallel(
-    //             "Deployment": {
-    //                  sh 'bash jjva-deployment-script.sh'
-    //                 },
-    //                 "Rollout Status": {
-    //                   sh 'bash jjva-fallback.sh'
-    //                     }
-    //                   )
-    //                 }
-    //             }
+    stage('JJva-Maven Deployment') {
+            steps {
+              parallel(
+                "Deployment": {
+                     sh 'bash jjva-deployment-script.sh'
+                    },
+                    "Rollout Status": {
+                      sh 'bash jjva-fallback.sh'
+                        }
+                      )
+                    }
+                }
 
   // stage ('Deploying To EKS') {
   //      steps {
