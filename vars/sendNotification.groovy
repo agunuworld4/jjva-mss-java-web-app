@@ -231,6 +231,126 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
+              "text": "*prometheus language query:*\n${promeName}"
+            ],
+            [
+              "type": "mrkdwn",
+              "text": "*Prome Port*\n9899"
+            ]
+          ],
+          "accessory": [
+            "type": "image",
+            "image_url": "https://raw.githubusercontent.com/agunuworld4/slack-devops-emoji/refs/heads/main/main/slack-emojis/Prometheus.png",
+            "alt_text": "prometheus Icon"
+          ],
+        ],
+
+        [
+          "type": "section",
+          "text": [
+              "type": "mrkdwn",
+              "text": "*prometheus Logs: * `logs`"
+            ],
+          "accessory": [
+            "type": "button",
+            "text": [
+              "type": "plain_text",
+              "text": "prometheus URL",
+              "emoji": true
+            ],
+            "value": "click_me_123",
+            "url": "${PromeLink}",
+            "action_id": "button-action"
+          ]
+        ],
+        [
+          "type": "divider"
+        ],
+        [
+          "type": "section",
+          "fields": [
+            [
+              "type": "mrkdwn",
+              "text": "*Alert Manager:*\n${alertName}"
+            ],
+            [
+              "type": "mrkdwn",
+              "text": "*Alert Port*\n9899"
+            ]
+          ],
+          "accessory": [
+            "type": "image",
+            "image_url": "https://raw.githubusercontent.com/agunuworld4/slack-devops-emoji/refs/heads/main/main/slack-emojis/alertmanger.png",
+            "alt_text": "Alert Icon"
+          ],
+        ],
+
+        [
+          "type": "section",
+          "text": [
+              "type": "mrkdwn",
+              "text": "*Alert Trigger: * `Alert`"
+            ],
+          "accessory": [
+            "type": "button",
+            "text": [
+              "type": "plain_text",
+              "text": "alertmanger URL",
+              "emoji": true
+            ],
+            "value": "click_me_123",
+            "url": "${alartLink}",
+            "action_id": "button-action"
+          ]
+        ],
+        [
+          "type": "divider"
+        ],
+        [
+          "type": "section",
+          "fields": [
+            [
+              "type": "mrkdwn",
+              "text": "*Grafana Dashboard Name:*\n${promeName}"
+            ],
+            [
+              "type": "mrkdwn",
+              "text": "*Grafana Port*\n9899"
+            ]
+          ],
+          "accessory": [
+            "type": "image",
+            "image_url": "https://raw.githubusercontent.com/agunuworld4/slack-devops-emoji/refs/heads/main/main/slack-emojis/grafana.png",
+            "alt_text": "Grafana Icon"
+          ],
+        ],
+
+        [
+          "type": "section",
+          "text": [
+              "type": "mrkdwn",
+              "text": "*Grafana Dashboard: * `visualization`"
+            ],
+          "accessory": [
+            "type": "button",
+            "text": [
+              "type": "plain_text",
+              "text": " URL",
+              "emoji": true
+            ],
+            "value": "click_me_123",
+            "url": "${grafanaURL}",
+            "action_id": "button-action"
+          ]
+        ],
+        [
+          "type": "divider"
+        ],
+        [
+          "type": "section",
+          "fields": [
+            [
+              "type": "mrkdwn",
               "text": "*Git Commit:*\n${GIT_COMMIT}"
             ],
             [

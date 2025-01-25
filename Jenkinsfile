@@ -23,6 +23,10 @@ pipeline {
     sonarName="jjva-mss-java-web-app"
     dockerName="jjva-mss-java-web-app"
     nexusName="jjva-mss-java-web-app"
+    promeName="prometheus-server"
+    alertM="prometheus-alertmanager"
+    alertName="prometheus-alertmanager"
+    graName="grafana"
     GIT_COMMIT = "${GIT_COMMIT}"
     GIT_BRANCH="${GIT_BRANCH}"
     GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
@@ -33,6 +37,10 @@ pipeline {
     //Sonareqube externalIP Idress
     sonarIP="http://34.148.62.212"
     nexusIP="http://34.68.125.161"
+    promeLink="http://prm.eagunu4live.com"
+    grafanaURL="http://gra.eagunu4live.com"
+    alertURL="http://mrg.eagunu4live.com"
+    alartLink="http://mgr.eagunu4live.com"
     dockerlink="https://hub.docker.com/repository/docker/eagunuworld/jjva-mss-java-web-app"
     //eagunu docker registry repository
     registry = "eagunuworld/jjva-mss-java-web-app"
