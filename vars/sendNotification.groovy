@@ -128,7 +128,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "section",
           "text": [
               "type": "mrkdwn",
-              "text": "*Git Branch: * `${GIT_BRANCH}`"
+              "text": "*Git Branch: * `${BUILD_NUMBER}`"
             ],
           "accessory": [
             "type": "button",
