@@ -7,6 +7,8 @@ pipeline {
   environment {
     deploymentName = "devsecops"
     GIT_COMMIT = "${GIT_COMMIT}"
+    GIT_BRANCH="${GIT_BRANCH}"
+    GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
     imageName = "siddharth67/numeric-app:${GIT_COMMIT}"
