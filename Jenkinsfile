@@ -24,7 +24,6 @@ pipeline {
     GIT_COMMIT = "${GIT_COMMIT}"
     GIT_BRANCH="${GIT_BRANCH}"
     GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
-    applicationURI = "/increment/99"
     webSite="eagunu4live.com"
     BUILD_NUMBER = "${env.BUILD_ID}"
     //jjva-mss-java-web-app sonarqubetoken
