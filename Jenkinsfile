@@ -21,6 +21,7 @@ pipeline {
   environment {
     myApp="mss-java-app"
     sonarName="jjva-mss-java-web-app"
+    dockerName="jjva-mss-java-web-app"
     nexusName="jjva-mss-java-web-app"
     GIT_COMMIT = "${GIT_COMMIT}"
     GIT_BRANCH="${GIT_BRANCH}"
@@ -32,6 +33,7 @@ pipeline {
     //Sonareqube externalIP Idress
     sonarIP="http://34.148.62.212"
     nexusIP="http://34.68.125.161"
+    dockerlink="https://hub.docker.com/repository/docker/eagunuworld/jjva-mss-java-web-app"
     //eagunu docker registry repository
     registry = "eagunuworld/jjva-mss-java-web-app"
     //eagunu dockerhub registry

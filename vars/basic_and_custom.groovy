@@ -97,4 +97,45 @@ def call(String buildStatus = 'STARTED') {
     "action_id": "button-action"
   ]
 ],
-===============
+===============Docker
+[
+  "type": "divider"
+],
+[
+  "type": "section",
+  "fields": [
+    [
+      "type": "mrkdwn",
+      "text": "*Package Repo Name:*\n${dockerName}"
+    ],
+    [
+      "type": "mrkdwn",
+      "text": "*Nexus Port*\n8081"
+    ]
+  ],
+  "accessory": [
+    "type": "image",
+    "image_url": "https://raw.githubusercontent.com/agunuworld4/slack-devops-emoji/refs/heads/main/main/slack-emojis/docker.png",
+    "alt_text": "Docker Icon"
+  ],
+],
+
+[
+  "type": "section",
+  "text": [
+      "type": "mrkdwn",
+      "text": "*Docker Package: * `Images`"
+    ],
+  "accessory": [
+    "type": "button",
+    "text": [
+      "type": "plain_text",
+      "text": "Docker URL",
+      "emoji": true
+    ],
+    "value": "click_me_123",
+    "url": "${dockerIP}:8081",
+    "action_id": "button-action"
+  ]
+],
+=================
