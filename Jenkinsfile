@@ -29,7 +29,7 @@ pipeline {
     graName="grafana"
     GIT_COMMIT = "${GIT_COMMIT}"
     GIT_BRANCH="${GIT_BRANCH}"
-    GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
+    GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
     webSite="http://eagunu4live.com"
     BUILD_NUMBER = "${env.BUILD_ID}"
     //jjva-mss-java-web-app sonarqubetoken

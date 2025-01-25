@@ -378,7 +378,7 @@ def call(String buildStatus = 'STARTED') {
               "emoji": true
             ],
             "value": "click_me_123",
-            "url": "${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}",
+            "url": "${env.BUILD_URL}",
             "action_id": "button-action"
           ]
         ]
