@@ -71,7 +71,7 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*Kubernetes Deployment Name:*\n${deploymentName}"
+              "text": "*Kubernetes Deployment Name:*\n${webSite}"
             ],
             [
               "type": "mrkdwn",
