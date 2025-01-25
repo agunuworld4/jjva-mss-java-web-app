@@ -75,7 +75,7 @@ def call(String buildStatus = 'STARTED') {
             ],
             [
               "type": "mrkdwn",
-              "text": "*Sonar Port*\9000"
+              "text": "*Sonar Port*\n9000"
             ]
           ],
           "accessory": [
