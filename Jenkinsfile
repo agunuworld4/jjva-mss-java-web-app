@@ -21,8 +21,6 @@ pipeline {
   environment {
     myApp="mss-java-app"
     sonarName="jjva-mss-java-web-app"
-    applicationURL = "http://devsecops-demo.eastus.cloudapp.azure.com"
-    applicationURI = "/increment/99"
     GIT_COMMIT = "${GIT_COMMIT}"
     GIT_BRANCH="${GIT_BRANCH}"
     GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
@@ -31,7 +29,7 @@ pipeline {
     //jjva-mss-java-web-app sonarqubetoken
     jjva_java_sonar_token="sqp_db11ea5f16674caeb3bafc7ae4c9d760dd24d042"
     //Sonareqube externalIP Idress
-    sonarIP="34.148.62.212"
+    sonarIP="http://34.148.62.212"
     //eagunu docker registry repository
     registry = "eagunuworld/jjva-mss-java-web-app"
     //eagunu dockerhub registry
