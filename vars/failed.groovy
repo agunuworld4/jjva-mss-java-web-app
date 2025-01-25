@@ -84,7 +84,6 @@ def call(String buildStatus = 'STARTED') {
             "alt_text": "Kubernetes Icon"
           ],
         ],
-
         [
           "type": "section",
           "text": [
@@ -99,7 +98,7 @@ def call(String buildStatus = 'STARTED') {
               "emoji": true
             ],
             "value": "click_me_123",
-            "url": "${applicationURL}:32564",
+            "url": "${webSite}",
             "action_id": "button-action"
           ]
         ],
