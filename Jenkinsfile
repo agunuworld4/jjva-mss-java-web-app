@@ -1,5 +1,5 @@
 
-@Library('jjva-canada-channels') _
+@Library('jvva-canada-channels-bot-user-slack-connections') _
 
 pipeline {
   agent { label 'jjva-google-jenkins-slave' }
