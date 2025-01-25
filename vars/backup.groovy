@@ -23,7 +23,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "header",
           "text": [
             "type": "plain_text",
-            "text": "App Deployment - ${myApp} Pipeline  ${env.emoji}",
+            "text": "K8S Deployment - ${myApp} Pipeline  ${env.emoji}",
             "emoji": true
           ]
         ],
@@ -99,7 +99,7 @@ def call(String buildStatus = 'STARTED') {
               "emoji": true
             ],
             "value": "click_me_123",
-            "url": "${myApp}:32564",
+            "url": "${applicationURL}:32564",
             "action_id": "button-action"
           ]
         ],
@@ -111,11 +111,11 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*Git Commit:*\n${BUILD_NUMBER}"
+              "text": "*Git Commit:*\n${GIT_COMMIT}"
             ],
             [
               "type": "mrkdwn",
-              "text": "*GIT Previous Success Commit:*\n${BUILD_NUMBER}"
+              "text": "*GIT Previous Success Commit:*\n${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
             ]
           ],
           "accessory": [
@@ -128,7 +128,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "section",
           "text": [
               "type": "mrkdwn",
-              "text": "*Git Branch: * `${BUILD_NUMBER}`"
+              "text": "*Git Branch: * `${GIT_BRANCH}`"
             ],
           "accessory": [
             "type": "button",

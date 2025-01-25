@@ -23,7 +23,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "header",
           "text": [
             "type": "plain_text",
-            "text": "K8S Deployment - ${deploymentName} Pipeline  ${env.emoji}",
+            "text": "K8S Deployment - ${myApp} Pipeline  ${env.emoji}",
             "emoji": true
           ]
         ],
@@ -71,7 +71,47 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*Kubernetes Deployment Name:*\n${deploymentName}"
+              "text": "*Codes Analysis Name:*\n${sonarName}"
+            ],
+            [
+              "type": "mrkdwn",
+              "text": "*Sonar Port*\9000"
+            ]
+          ],
+          "accessory": [
+            "type": "image",
+            "image_url": "https://github.com/agunuworld4/slack-devops-emoji/blob/main/main/slack-emojis/java-sonar.png",
+            "alt_text": "SonarQube Icon"
+          ],
+        ],
+
+        [
+          "type": "section",
+          "text": [
+              "type": "mrkdwn",
+              "text": "*Analysis logs: * `Scanning`"
+            ],
+          "accessory": [
+            "type": "button",
+            "text": [
+              "type": "plain_text",
+              "text": "SonarQube URL",
+              "emoji": true
+            ],
+            "value": "click_me_123",
+            "url": "${sonarIP}:9000",
+            "action_id": "button-action"
+          ]
+        ],
+        [
+          "type": "divider"
+        ],
+        [
+          "type": "section",
+          "fields": [
+            [
+              "type": "mrkdwn",
+              "text": "*Kubernetes Deployment Name:*\n${myApp}"
             ],
             [
               "type": "mrkdwn",
