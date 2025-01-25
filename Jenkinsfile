@@ -29,7 +29,7 @@ pipeline {
     alertName="prometheus-alertmanager"
     graName="grafana"
     //website url properties
-    webSite="http://mdb.eagunu4live.com"
+    webSite="http://mdb.eagunu4live.com/java-web-app"
     sonarIP="http://35.229.80.79"
     nexusIP="http://34.121.109.88"
     promeLink="http://prm.eagunu4live.com"
