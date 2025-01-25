@@ -71,46 +71,6 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*Codes Analysis Name:*\n${sonarName}"
-            ],
-            [
-              "type": "mrkdwn",
-              "text": "*Sonar Port*\n9000"
-            ]
-          ],
-          "accessory": [
-            "type": "image",
-            "image_url": "https://raw.githubusercontent.com/sidd-harth/kubernetes-devops-security/main/slack-emojis/k8s.png",
-            "alt_text": "SonarQube Icon"
-          ],
-        ],
-
-        [
-          "type": "section",
-          "text": [
-              "type": "mrkdwn",
-              "text": "*Analysis logs: * `Scanning`"
-            ],
-          "accessory": [
-            "type": "button",
-            "text": [
-              "type": "plain_text",
-              "text": "SonarQube URL",
-              "emoji": true
-            ],
-            "value": "click_me_123",
-            "url": "${sonarIP}:9000",
-            "action_id": "button-action"
-          ]
-        ],
-        [
-          "type": "divider"
-        ],
-        [
-          "type": "section",
-          "fields": [
-            [
-              "type": "mrkdwn",
               "text": "*Kubernetes Deployment Name:*\n${myApp}"
             ],
             [
