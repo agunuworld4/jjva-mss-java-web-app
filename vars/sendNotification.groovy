@@ -84,7 +84,6 @@ def call(String buildStatus = 'STARTED') {
             "alt_text": "Kubernetes Icon"
           ],
         ],
-
         [
           "type": "section",
           "text": [
