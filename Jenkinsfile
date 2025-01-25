@@ -26,7 +26,7 @@ pipeline {
     GIT_COMMIT = "${GIT_COMMIT}"
     GIT_BRANCH="${GIT_BRANCH}"
     GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
-    webSite="eagunu4live.com"
+    webSite="http://eagunu4live.com"
     BUILD_NUMBER = "${env.BUILD_ID}"
     //jjva-mss-java-web-app sonarqubetoken
     jjva_java_sonar_token="sqp_db11ea5f16674caeb3bafc7ae4c9d760dd24d042"
