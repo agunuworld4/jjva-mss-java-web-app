@@ -9,7 +9,7 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mss-java-pod
+  name: mss-java-app
   namespace: jjva-ns-svc-pod
 spec:
   replicas: 2

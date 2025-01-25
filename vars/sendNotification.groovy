@@ -23,7 +23,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "header",
           "text": [
             "type": "plain_text",
-            "text": "App Deployment - ${webSite} Pipeline  ${env.emoji}",
+            "text": "App Deployment - ${myApp} Pipeline  ${env.emoji}",
             "emoji": true
           ]
         ],
@@ -71,7 +71,7 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*Kubernetes Deployment Name:*\n${webSite}"
+              "text": "*Kubernetes Deployment Name:*\n${myApp}"
             ],
             [
               "type": "mrkdwn",
@@ -99,7 +99,7 @@ def call(String buildStatus = 'STARTED') {
               "emoji": true
             ],
             "value": "click_me_123",
-            "url": "${applicationURL}:32564",
+            "url": "${myApp}:32564",
             "action_id": "button-action"
           ]
         ],
