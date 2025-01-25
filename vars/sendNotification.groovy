@@ -80,7 +80,7 @@ def call(String buildStatus = 'STARTED') {
           ],
           "accessory": [
             "type": "image",
-            "image_url": "http://github.com/agunuworld4/slack-devops-emoji/blob/main/main/slack-emojis/java-sonar.png",
+            "image_url": "https://raw.githubusercontent.com/agunuworld4/slack-devops-emoji/refs/heads/main/main/slack-emojis/sonar.png",
             "alt_text": "SonarQube Icon"
           ],
         ],
