@@ -159,14 +159,11 @@ pipeline {
   //          }
   //        }
 
-  stages {
-         stage('Testing Slack') {
-           steps {
-             sh 'exit 0'
-           }
-         }
-
-       }
+  stage('Testing Slack') {
+    steps {
+      sh 'exit 0'
+        }
+     }
   // stage('kubernetes version 2') {
   //              steps {
   //               withKubeConfig([credentialsId: 'us-east-2-prod-eksdemo']) {
