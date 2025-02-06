@@ -168,9 +168,15 @@ pipeline {
            }
          }
 
+    stage('updating image version') {
+          steps {
+                sh "bash jjva-latest-version-update.sh"
+                }
+            }
+
     stage('Cleaning  up docker Images') {
         steps{
-           sh 'docker rmi  $(docker images -q)'
+           sh 'docker rmi  ${imageVersion}'
            }
          }
   // stage('kubernetes version 2') {
