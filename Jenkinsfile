@@ -174,7 +174,7 @@ pipeline {
            }
          }
 
- }  //This line end the pipeline stages
+ }  //This line end the pipeline stages yes pls 
   post {   //This line start the post script uncommit later
     success {
       script {
