@@ -70,7 +70,7 @@ pipeline {
     stage('Cloning Git') {
             steps {
                 //checkout([$class: 'GitSCM', branches: [[name: '*/prod-master']], extensions: [], userRemoteConfigs: [[credentialsId: 'democalculus-github-login-creds', url: 'https://github.com/democalculus/kubana-maven-web-app.git']]])
-                git credentialsId: 'GIT_CREDENTIALS', url:  'https://github.com/agunuworld4/jjva-mss-java-web-app.git',branch: 'lab-master-branch'
+                git credentialsId: 'GIT_CREDENTIALS', url:  'https://github.com/agunuworld4/jjva-mss-java-web-app.git',branch: 'main'
             }
         }
 
